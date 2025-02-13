@@ -97,16 +97,16 @@ external_url 'https://gitlab.healthierclinic.com'
 ###! Docs: https://docs.gitlab.com/omnibus/settings/smtp.html
 ###! **Use smtp instead of sendmail/postfix.**
 
-# gitlab_rails['smtp_enable'] = true
-# gitlab_rails['smtp_address'] = "smtp.server"
-# gitlab_rails['smtp_port'] = 465
-# gitlab_rails['smtp_user_name'] = "smtp user"
-# gitlab_rails['smtp_password'] = "smtp password"
-# gitlab_rails['smtp_domain'] = "example.com"
-# gitlab_rails['smtp_authentication'] = "login"
-# gitlab_rails['smtp_enable_starttls_auto'] = true
-# gitlab_rails['smtp_tls'] = false
-# gitlab_rails['smtp_pool'] = false
+#gitlab_rails['smtp_enable'] = true
+#gitlab_rails['smtp_address'] = "smtp.gmail.com"
+#gitlab_rails['smtp_port'] = 587
+#gitlab_rails['smtp_user_name'] = ""
+#gitlab_rails['smtp_password'] = ""
+#gitlab_rails['smtp_domain'] = "smtp.gmail.com"
+#gitlab_rails['smtp_authentication'] = "login"
+#gitlab_rails['smtp_enable_starttls_auto'] = true
+#gitlab_rails['smtp_tls'] = false
+#gitlab_rails['smtp_pool'] = 'peer'
 
 ###! **Can be: 'none', 'peer', 'client_once', 'fail_if_no_peer_cert'**
 ###! Docs: http://api.rubyonrails.org/classes/ActionMailer/Base.html
