@@ -1,0 +1,20 @@
+$TTL 2d
+$ORIGIN healthierclinic.com.
+
+@       IN      SOA     ns1.healthierclinic.com. admin.healthierclinic.com. (
+                        2025020501 ; serial number (YYYYMMDDXX format; update when changes are made)
+                        3600       ; refresh period in seconds
+                        600        ; retry period in seconds
+                        604800     ; expire time in seconds
+                        1800       ; negative caching TTL in seconds
+                        )
+
+        IN      NS      ns1.healthierclinic.com.
+
+; Define the nameserver for the domain (if BIND itself is acting as the authoritative server,
+; you can either point this to the IP of your bind container or use an external IP if needed)
+ns1     IN      A       192.168.0.0  ; example IP – adjust as appropriate
+
+gitlab  IN      A       172.19.0.2
+ca      IN      A       10.31.137.29
+mail    IN      A       10.31.137.137
