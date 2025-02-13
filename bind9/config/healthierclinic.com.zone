@@ -16,5 +16,3 @@ $ORIGIN healthierclinic.com.
 ns1     IN      A       192.168.0.0  ; example IP – adjust as appropriate
 
 gitlab  IN      A       172.19.0.2
-ca      IN      A       10.31.137.29
-mail    IN      A       10.31.137.137

@@ -29,7 +29,7 @@
 ##! On AWS EC2 instances, we also attempt to fetch the public hostname/IP
 ##! address from AWS. For more details, see:
 ##! https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-retrieval.html
-    external_url 'https://gitlab.healthierclinic.com'
+external_url 'https://gitlab.healthierclinic.com'
 
 ## Roles for multi-instance GitLab
 ##! The default is to have no roles enabled, which results in GitLab running as an all-in-one instance.
@@ -2833,7 +2833,7 @@
 ################################################################################
 # Let's Encrypt integration
 ################################################################################
-# letsencrypt['enable'] = false
+letsencrypt['enable'] = true
 # letsencrypt['contact_emails'] = [] # This should be an array of email addresses to add as contacts
 # letsencrypt['group'] = 'root'
 # letsencrypt['key_size'] = 2048

@@ -5,13 +5,11 @@ services:
     container_name: gitlab
     restart: always
     hostname: 'gitlab.healthierclinic.com'
-    environment:
-      GITLAB_ROOT_EMAIL: "admin@healthierclinic.com"
-      GITLAB_ROOT_PASSWORD: "Youshouldchangethispassword"
     ports:
       - '80:80'
       - '443:443'
       - '22:22'
+      - '25:25'
     volumes:
       - '$GITLAB_HOME/config:/etc/gitlab'
       - '$GITLAB_HOME/logs:/var/log/gitlab'
