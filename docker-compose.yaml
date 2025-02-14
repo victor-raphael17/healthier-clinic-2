@@ -31,6 +31,9 @@ services:
       - ./bind9/config:/etc/bind
       - ./bind9/cache:/var/cache/bind
       - ./bind9/records:/var/lib/bind
+    networks:
+      mynet:
+        ipv4_address: 172.19.0.3
 
 networks:
   mynet:

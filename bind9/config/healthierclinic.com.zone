@@ -1,18 +1,22 @@
-$TTL 2d
+$TTL 1d
 $ORIGIN healthierclinic.com.
 
 @       IN      SOA     ns1.healthierclinic.com. admin.healthierclinic.com. (
-                        2025020501 ; serial number (YYYYMMDDXX format; update when changes are made)
-                        3600       ; refresh period in seconds
-                        600        ; retry period in seconds
-                        604800     ; expire time in seconds
-                        1800       ; negative caching TTL in seconds
+                        2025020505 ; serial number (increment on update)
+                        3600       ; refresh period (1 hour)
+                        600        ; retry period (10 minutes)
+                        604800     ; expire time (7 days)
+                        1800       ; negative caching TTL (30 minutes)
                         )
 
         IN      NS      ns1.healthierclinic.com.
 
-; Define the nameserver for the domain (if BIND itself is acting as the authoritative server,
-; you can either point this to the IP of your bind container or use an external IP if needed)
-ns1     IN      A       192.168.0.0  ; example IP – adjust as appropriate
-
+ns1     IN      A       172.19.0.3
 gitlab  IN      A       172.19.0.2
+mail    IN      A       10.31.137.48
+@       IN      MX      10 mail.healthierclinic.com.
+autodiscover    IN      CNAME   mail.healthierclinic.com.
+autoconfig      IN      CNAME   mail.healthierclinic.com.
+dkim._domainkey IN      TXT     "v=DKIM1; k=rsa; t=s; s=email; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAs7DR6acQptPePUaLy9U0L85jpvVPUp38Mfknw1TH8AxrcodNbhbzOfcEJRO463S1qVk1r5/3Ik14bHLMcCtKr8mkRNd1Ksnj0TyN8eNzMaYhzV1XRYEjoWns/B1+z0F1UCrKp2R0uJwONdU95XaAEYCIsi+RU84Xq5RtMwLpXa2I7KGkfGFA5VIY7BZwFu8akvtYeU9Ysalw1BDlcklCpgp0jGLMoMGqPPdEivg5NI3euMFtRruGNxtcVYmNfDylx1lspkx9IakTrmSIimk64CiTe5mgsDfz1QbOVlb0HsSGPKBPtv35ngyn0BwqdG9CdzRVgmJjwTkpJz5wmPzdnwIDAQAB"
+_dmarc  IN      TXT     "v=DMARC1; p=none; rua=mailto:dmarc@healthierclinic.com"
+@       IN      TXT     "v=spf1 a mx -all"
