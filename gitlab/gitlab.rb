@@ -737,14 +737,14 @@ external_url 'https://gitlab.healthierclinic.com'
 #### Change the initial default admin password and shared runner registration tokens.
 ####! **Only applicable on initial setup, changing these settings after database
 ####!   is created and seeded won't yield any change.**
-# gitlab_rails['initial_root_password'] = "password"
+gitlab_rails['initial_root_password'] = "46154615"
 # gitlab_rails['initial_shared_runners_registration_token'] = "token"
 
 #### Toggle if root password should be printed to STDOUT during initialization
 # gitlab_rails['display_initial_root_password'] = false
 
 #### Toggle if initial root password should be written to /etc/gitlab/initial_root_password
-# gitlab_rails['store_initial_root_password'] = true
+gitlab_rails['store_initial_root_password'] = true
 
 #### Set path to an initial license to be used while bootstrapping GitLab.
 ####! **Only applicable on initial setup, future license updates need to be done via UI.
@@ -2833,7 +2833,7 @@ external_url 'https://gitlab.healthierclinic.com'
 ################################################################################
 # Let's Encrypt integration
 ################################################################################
-letsencrypt['enable'] = true
+#letsencrypt['enable'] = true
 # letsencrypt['contact_emails'] = [] # This should be an array of email addresses to add as contacts
 # letsencrypt['group'] = 'root'
 # letsencrypt['key_size'] = 2048
