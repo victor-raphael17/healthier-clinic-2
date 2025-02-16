@@ -2,7 +2,7 @@ $TTL 1d
 $ORIGIN healthierclinic.com.
 
 @       IN      SOA     ns1.healthierclinic.com. admin.healthierclinic.com. (
-                        2025020505 ; serial number (increment on update)
+                        2025020510 ; serial number (increment on update)
                         3600       ; refresh period (1 hour)
                         600        ; retry period (10 minutes)
                         604800     ; expire time (7 days)
@@ -17,6 +17,14 @@ mail    IN      A       10.31.137.48
 @       IN      MX      10 mail.healthierclinic.com.
 autodiscover    IN      CNAME   mail.healthierclinic.com.
 autoconfig      IN      CNAME   mail.healthierclinic.com.
-dkim._domainkey IN      TXT     "v=DKIM1; k=rsa; t=s; s=email; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAs7DR6acQptPePUaLy9U0L85jpvVPUp38Mfknw1TH8AxrcodNbhbzOfcEJRO463S1qVk1r5/3Ik14bHLMcCtKr8mkRNd1Ksnj0TyN8eNzMaYhzV1XRYEjoWns/B1+z0F1UCrKp2R0uJwONdU95XaAEYCIsi+RU84Xq5RtMwLpXa2I7KGkfGFA5VIY7BZwFu8akvtYeU9Ysalw1BDlcklCpgp0jGLMoMGqPPdEivg5NI3euMFtRruGNxtcVYmNfDylx1lspkx9IakTrmSIimk64CiTe5mgsDfz1QbOVlb0HsSGPKBPtv35ngyn0BwqdG9CdzRVgmJjwTkpJz5wmPzdnwIDAQAB"
-_dmarc  IN      TXT     "v=DMARC1; p=none; rua=mailto:dmarc@healthierclinic.com"
-@       IN      TXT     "v=spf1 a mx -all"
+dkim._domainkey IN TXT (
+  "v=DKIM1;k=rsa;t=s;s=email;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A"
+  "MIIBCgKCAQEAs7DR6acQptPePUaLy9U0L85jpvVPUp38Mfknw1TH8AxrcodNbh"
+  "bzOfcEJRO463S1qVk1r5/3Ik14bHLMcCtKr8mkRNd1Ksnj0TyN8eNzMaYhzV1X"
+  "RYEjoWns/B1+z0F1UCrKp2R0uJwONdU95XaAEYCIsi+RU84Xq5RtMwLpXa2I7KG"
+  "kfGFA5VIY7BZwFu8akvtYeU9Ysalw1BDlcklCpgp0jGLMoMGqPPdEivg5NI3euM"
+  "FtRruGNxtcVYmNfDylx1lspkx9IakTrmSIimk64CiTe5mgsDfz1QbOVlb0HsSGP"
+  "KBPtv35ngyn0BwqdG9CdzRVgmJjwTkpJz5wmPzdnwIDAQAB"
+)
+_dmarc    IN TXT  "v=DMARC1; p=none; rua=mailto:dmarc@healthierclinic.com"
+@         IN TXT  "v=spf1 a mx -all"
