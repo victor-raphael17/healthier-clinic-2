@@ -97,33 +97,33 @@ external_url 'https://gitlab.healthierclinic.com'
 ###! Docs: https://docs.gitlab.com/omnibus/settings/smtp.html
 ###! **Use smtp instead of sendmail/postfix.**
 
-#gitlab_rails['smtp_enable'] = true
-#gitlab_rails['smtp_address'] = "smtp.gmail.com"
-#gitlab_rails['smtp_port'] = 587
-#gitlab_rails['smtp_user_name'] = ""
-#gitlab_rails['smtp_password'] = ""
-#gitlab_rails['smtp_domain'] = "smtp.gmail.com"
-#gitlab_rails['smtp_authentication'] = "login"
-#gitlab_rails['smtp_enable_starttls_auto'] = true
-#gitlab_rails['smtp_tls'] = false
-#gitlab_rails['smtp_pool'] = 'peer'
+gitlab_rails['smtp_enable'] = true
+gitlab_rails['smtp_address'] = "mail.healthierclinic.com"
+gitlab_rails['smtp_port'] = 25
+gitlab_rails['smtp_user_name'] = "gitlab@healthierclinic.com"
+gitlab_rails['smtp_password'] = "46154615"
+gitlab_rails['smtp_domain'] = "mail.healthierclinic.com"
+gitlab_rails['smtp_authentication'] = "plain"
+gitlab_rails['smtp_enable_starttls_auto'] = false
+gitlab_rails['smtp_tls'] = false
+gitlab_rails['smtp_pool'] = 'peer'
 
 ###! **Can be: 'none', 'peer', 'client_once', 'fail_if_no_peer_cert'**
 ###! Docs: http://api.rubyonrails.org/classes/ActionMailer/Base.html
-# gitlab_rails['smtp_openssl_verify_mode'] = 'none'
+gitlab_rails['smtp_openssl_verify_mode'] = 'none'
 
 # gitlab_rails['smtp_ca_path'] = "/etc/ssl/certs"
 # gitlab_rails['smtp_ca_file'] = "/etc/ssl/certs/ca-certificates.crt"
 
 ### Email Settings
 
-# gitlab_rails['gitlab_email_enabled'] = true
+gitlab_rails['gitlab_email_enabled'] = true
 
 ##! If your SMTP server does not like the default 'From: gitlab@gitlab.example.com'
 ##! can change the 'From' with this setting.
-# gitlab_rails['gitlab_email_from'] = 'example@example.com'
-# gitlab_rails['gitlab_email_display_name'] = 'Example'
-# gitlab_rails['gitlab_email_reply_to'] = 'noreply@example.com'
+gitlab_rails['gitlab_email_from'] = 'gitlab@healthierclinic.com'
+gitlab_rails['gitlab_email_display_name'] = 'noreply'
+gitlab_rails['gitlab_email_reply_to'] = 'gitlab@healthierclinic.com'
 # gitlab_rails['gitlab_email_subject_suffix'] = ''
 # gitlab_rails['gitlab_email_smime_enabled'] = false
 # gitlab_rails['gitlab_email_smime_key_file'] = '/etc/gitlab/ssl/gitlab_smime.key'
@@ -295,7 +295,7 @@ external_url 'https://gitlab.healthierclinic.com'
 ###! Allow users to comment on issues and merge requests by replying to
 ###! notification emails.
 ###! Docs: https://docs.gitlab.com/ee/administration/reply_by_email.html
-# gitlab_rails['incoming_email_enabled'] = true
+gitlab_rails['incoming_email_enabled'] = true
 
 #### Incoming Email Address
 ####! The email address including the `%{key}` placeholder that will be replaced
