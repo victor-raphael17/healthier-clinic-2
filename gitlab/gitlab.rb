@@ -101,12 +101,12 @@ gitlab_rails['smtp_enable'] = true
 gitlab_rails['smtp_address'] = "mail.healthierclinic.com"
 gitlab_rails['smtp_port'] = 25
 gitlab_rails['smtp_user_name'] = "gitlab@healthierclinic.com"
-gitlab_rails['smtp_password'] = "46154615"
+gitlab_rails['smtp_password'] = "adminadmin"
 gitlab_rails['smtp_domain'] = "mail.healthierclinic.com"
 gitlab_rails['smtp_authentication'] = "plain"
 gitlab_rails['smtp_enable_starttls_auto'] = false
 gitlab_rails['smtp_tls'] = false
-gitlab_rails['smtp_pool'] = 'peer'
+gitlab_rails['smtp_pool'] = 'true'
 
 ###! **Can be: 'none', 'peer', 'client_once', 'fail_if_no_peer_cert'**
 ###! Docs: http://api.rubyonrails.org/classes/ActionMailer/Base.html
@@ -737,7 +737,7 @@ gitlab_rails['incoming_email_enabled'] = true
 #### Change the initial default admin password and shared runner registration tokens.
 ####! **Only applicable on initial setup, changing these settings after database
 ####!   is created and seeded won't yield any change.**
-gitlab_rails['initial_root_password'] = "46154615"
+gitlab_rails['initial_root_password'] = "adminadmin"
 # gitlab_rails['initial_shared_runners_registration_token'] = "token"
 
 #### Toggle if root password should be printed to STDOUT during initialization

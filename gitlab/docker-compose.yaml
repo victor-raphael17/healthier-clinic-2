@@ -1,4 +1,6 @@
-# PLEASE ENABLE THE GITLAB_HOME VARIABLE == export GITLAB_HOME=/srv/gitlab
+# PLEASE ENABLE SET THE GITLAB_HOME VARIABLE
+#echo 'export GITLAB_HOME=/srv/gitlab' >> ~/.bashrc
+#source ~/.bashrc
 services:
   gitlab:
     image: gitlab/gitlab-ce:latest
@@ -6,8 +8,8 @@ services:
     restart: always
     hostname: 'gitlab.healthierclinic.com'
     ports:
-      - '80:80'
-      - '443:443'
+      - '8080:80'
+      - '8443:443'
       - '22:22'
     volumes:
       - '$GITLAB_HOME/config:/etc/gitlab'

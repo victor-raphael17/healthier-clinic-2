@@ -1,0 +1,14 @@
+$TTL 86400
+$ORIGIN 0.168.192.in-addr.arpa.
+
+@       IN      SOA     ns1.healthierclinic.com. admin.healthierclinic.com. (
+                        2025021701 ; Serial number (increment on update)
+                        3600       ; Refresh period (1 hour)
+                        600        ; Retry period (10 minutes)
+                        604800     ; Expire time (7 days)
+                        1800       ; Negative caching TTL (30 minutes)
+                        )
+
+        IN      NS      ns1.healthierclinic.com.
+
+11      IN      PTR     mail.healthierclinic.com.
