@@ -11,19 +11,20 @@ services:
       - '8080:80'
       - '8443:443'
       - '22:22'
+    dns:
+      - 172.19.0.3
     volumes:
       - '$GITLAB_HOME/config:/etc/gitlab'
       - '$GITLAB_HOME/logs:/var/log/gitlab'
       - '$GITLAB_HOME/data:/var/opt/gitlab'
       - './gitlab.rb:/etc/gitlab/gitlab.rb'
+      - './resolv.conf:/etc/resolv.conf'
     shm_size: '256m'
     networks:
-      mynet:
+      mysharednet:
         ipv4_address: 172.19.0.2
 
 networks:
-  mynet:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.19.0.0/16
+      mysharednet:
+        external: true
+        

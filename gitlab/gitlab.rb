@@ -99,14 +99,14 @@ external_url 'https://gitlab.healthierclinic.com'
 
 gitlab_rails['smtp_enable'] = true
 gitlab_rails['smtp_address'] = "mail.healthierclinic.com"
-gitlab_rails['smtp_port'] = 25
+gitlab_rails['smtp_port'] = 587
 gitlab_rails['smtp_user_name'] = "gitlab@healthierclinic.com"
 gitlab_rails['smtp_password'] = "adminadmin"
-gitlab_rails['smtp_domain'] = "mail.healthierclinic.com"
-gitlab_rails['smtp_authentication'] = "plain"
-gitlab_rails['smtp_enable_starttls_auto'] = false
+gitlab_rails['smtp_domain'] = "healthierclinic.com"
+gitlab_rails['smtp_authentication'] = "login"
+gitlab_rails['smtp_enable_starttls_auto'] = true
 gitlab_rails['smtp_tls'] = false
-gitlab_rails['smtp_pool'] = 'true'
+#gitlab_rails['smtp_pool'] = true
 
 ###! **Can be: 'none', 'peer', 'client_once', 'fail_if_no_peer_cert'**
 ###! Docs: http://api.rubyonrails.org/classes/ActionMailer/Base.html
@@ -117,12 +117,12 @@ gitlab_rails['smtp_openssl_verify_mode'] = 'none'
 
 ### Email Settings
 
-gitlab_rails['gitlab_email_enabled'] = true
+#gitlab_rails['gitlab_email_enabled'] = true
 
 ##! If your SMTP server does not like the default 'From: gitlab@gitlab.example.com'
 ##! can change the 'From' with this setting.
 gitlab_rails['gitlab_email_from'] = 'gitlab@healthierclinic.com'
-gitlab_rails['gitlab_email_display_name'] = 'noreply'
+gitlab_rails['gitlab_email_display_name'] = "noreply"
 gitlab_rails['gitlab_email_reply_to'] = 'gitlab@healthierclinic.com'
 # gitlab_rails['gitlab_email_subject_suffix'] = ''
 # gitlab_rails['gitlab_email_smime_enabled'] = false
@@ -233,7 +233,7 @@ gitlab_rails['gitlab_email_reply_to'] = 'gitlab@healthierclinic.com'
 ###! different machine.
 ###! **Add the IP address for your reverse proxy to the list, otherwise users
 ###!   will appear signed in from that address.**
-# gitlab_rails['trusted_proxies'] = []
+gitlab_rails['trusted_proxies'] = ['192.168.0.0/24', '172.19.0.0/16']
 
 ### Content Security Policy
 ####! Customize if you want to enable the Content-Security-Policy header, which
@@ -295,7 +295,7 @@ gitlab_rails['gitlab_email_reply_to'] = 'gitlab@healthierclinic.com'
 ###! Allow users to comment on issues and merge requests by replying to
 ###! notification emails.
 ###! Docs: https://docs.gitlab.com/ee/administration/reply_by_email.html
-gitlab_rails['incoming_email_enabled'] = true
+#gitlab_rails['incoming_email_enabled'] = true
 
 #### Incoming Email Address
 ####! The email address including the `%{key}` placeholder that will be replaced
@@ -737,7 +737,7 @@ gitlab_rails['incoming_email_enabled'] = true
 #### Change the initial default admin password and shared runner registration tokens.
 ####! **Only applicable on initial setup, changing these settings after database
 ####!   is created and seeded won't yield any change.**
-gitlab_rails['initial_root_password'] = "adminadmin"
+#gitlab_rails['initial_root_password'] = "adminadmin"
 # gitlab_rails['initial_shared_runners_registration_token'] = "token"
 
 #### Toggle if root password should be printed to STDOUT during initialization

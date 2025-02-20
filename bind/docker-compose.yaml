@@ -14,12 +14,9 @@ services:
       - ./records:/var/lib/bind
       - ./run:/run/named
     networks:
-        mynet:
-          ipv4_address: 172.20.0.2
+      mysharednet:
+        ipv4_address: 172.19.0.3
 
 networks:
-  mynet:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.20.0.0/16
+      mysharednet:
+        external: true
