@@ -1,0 +1,22 @@
+services:
+  gitlab-runner:
+    image: gitlab/gitlab-runner:alpine
+    container_name: gitlab-runner
+    restart: always
+    volumes:
+      - '/srv/gitlab-runner/config:/etc/gitlab-runner'
+      - '/var/run/docker.sock:/var/run/docker.sock'
+      - '/srv/gitlab-runner/docker-machine-config:/root/.docker/machine'
+      - './ca.crt:/etc/gitlab-runner/certs/ca.crt'
+    ports:
+      - '8093:8093'
+    dns:
+      - 172.19.0.3
+    networks:
+      mysharednet:
+        ipv4_address: 172.19.0.4
+
+networks:
+      mysharednet:
+        external: true
+ 
