@@ -1,0 +1,14 @@
+services:
+  db:
+    build: ./db
+    volumes:
+      - mysqldata:/var/lib/mysql
+  web:
+    build: ./nginx
+    ports:
+      - 80:80
+  phpfpm:
+    build: ./php
+
+volumes:
+  mysqldata:
