@@ -17,7 +17,8 @@ mail    IN      A       192.168.0.11
 @       IN      MX      10 mail.healthierclinic.com.
 autodiscover    IN      CNAME   mail.healthierclinic.com.
 autoconfig      IN      CNAME   mail.healthierclinic.com.
-runner  IN      A       172.19.0.4       
+runner  IN      A       172.19.0.4
+web     IN      A       172.19.0.5
 
 dkim._domainkey IN TXT (
   "v=DKIM1;k=rsa;t=s;s=email;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A"
