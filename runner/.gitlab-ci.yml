@@ -1,0 +1,25 @@
+build-job:
+  image: docker:dind
+  stage: build
+  script:
+    - echo $CI_REGISTRY_USER
+    - echo $CI_REGISTRY
+    - echo $CI_REGISTRY_IMAGE
+    - echo $CI_COMMIT_REF_SLUG
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -f php/Dockerfile -t $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG .
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+test-job:
+  image: php:latest
+  stage: test
+  script:
+    - curl -o /opt/phpcs.phar -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
+    - php /opt/phpcs.phar php/crudphp/*.php
+deploy-prod:
+  stage: deploy
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      when: on_success
+  script:
+    - echo "This job deploys something from the $CI_COMMIT_BRANCH branch."
+  environment: production

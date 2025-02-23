@@ -967,7 +967,7 @@ gitlab_rails['store_initial_root_password'] = true
 ##! Docs: https://docs.gitlab.com/ee/administration/packages/container_registry.html
 ################################################################################
 
-# registry_external_url 'https://registry.example.com'
+registry_external_url 'https://gitlab.healthierclinic.com:5050'
 
 ### Settings used by GitLab application
 # gitlab_rails['registry_enabled'] = true
@@ -2320,19 +2320,21 @@ gitlab_rails['store_initial_root_password'] = true
 # `registry_nginx['some_setting']` and should be set separately.
 
 # Below you can find settings that are exclusive to "Registry NGINX"
-# registry_nginx['enable'] = false
+registry_nginx['enable'] = true
 
-# registry_nginx['proxy_set_headers'] = {
-#  "Host" => "$http_host",
-#  "X-Real-IP" => "$remote_addr",
-#  "X-Forwarded-For" => "$proxy_add_x_forwarded_for",
-#  "X-Forwarded-Proto" => "https",
-#  "X-Forwarded-Ssl" => "on"
-# }
+registry_nginx['proxy_set_headers'] = {
+ "Host" => "$http_host",
+ "X-Real-IP" => "$remote_addr",
+ "X-Forwarded-For" => "$proxy_add_x_forwarded_for",
+ "X-Forwarded-Proto" => "https",
+ "X-Forwarded-Ssl" => "on"
+}
 
 # When the registry is automatically enabled using the same domain as `external_url`,
 # it listens on this port
-# registry_nginx['listen_port'] = 5050
+registry_nginx['listen_port'] = 5050
+registry_nginx['ssl_certificate'] = "/etc/gitlab/ssl/gitlab.healthierclinic.com.crt"
+registry_nginx['ssl_certificate_key'] = "/etc/gitlab/ssl/gitlab.healthierclinic.com.key"
 
 ################################################################################
 ## Prometheus
