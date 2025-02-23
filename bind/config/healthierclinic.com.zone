@@ -2,7 +2,7 @@ $TTL 1d
 $ORIGIN healthierclinic.com.
 
 @       IN      SOA     ns1.healthierclinic.com. admin.healthierclinic.com. (
-                        2025020511 ; serial number (increment on update)
+                        2025020512 ; serial number (increment on update)
                         3600       ; refresh period (1 hour)
                         600        ; retry period (10 minutes)
                         604800     ; expire time (7 days)
@@ -19,6 +19,9 @@ autodiscover    IN      CNAME   mail.healthierclinic.com.
 autoconfig      IN      CNAME   mail.healthierclinic.com.
 runner  IN      A       172.19.0.4
 web     IN      A       172.19.0.5
+db      IN      A       172.19.0.6
+phpfpm  IN      A       172.19.0.7
+pacients        IN      CNAME   web
 
 dkim._domainkey IN TXT (
   "v=DKIM1;k=rsa;t=s;s=email;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A"
